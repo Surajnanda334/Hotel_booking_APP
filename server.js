@@ -29,7 +29,7 @@ const connectDB = async (MONGO_URI) => {
     }
 }
 
-connectDB(process.env.MONGO_URI)
+connectDB(process.env.MONGO_URI || 'mongodb://localhost:27017')
 
 app.use('/api/user', userRoute);
 
