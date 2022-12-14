@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose')
+const connectDB = require('./utils/dbConn')
+
 require('dotenv/config')
 
 //middlewares
@@ -12,22 +14,6 @@ const userRoute = require('./routes/userRoute');
 // body parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-
-const connectDB = async (MONGO_URI) => { 
-    try{
-        // mongodb connection string 
-        const con = await mongoose.connect(MONGO_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        })
-
-        console.log(`MongoDB connected : ${con.connection.host}`);
-    }catch(err){
-        console.log(err);
-        process.exit(1);
-    }
-}
 
 connectDB(process.env.MONGO_URI || 'mongodb://localhost:27017')
 
