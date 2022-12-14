@@ -1,2 +1,2 @@
-# Hotel_booking_APP
-The system is meant for a hotel to display rooms for customers to view and book via web application.
+# Node template
+The system is meant to provide a basic template and also provides a mongoDB connection and also has user routes like signup and login
