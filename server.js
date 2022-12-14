@@ -11,10 +11,11 @@ const errorHandler = require('./middlewares/errorHandler.js');
 //routes
 const userRoute = require('./routes/userRoute');
 
-// body parser
+//Body parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+//Db connection
 connectDB(process.env.MONGO_URI || 'mongodb://localhost:27017')
 
 app.use('/api/user', userRoute);
